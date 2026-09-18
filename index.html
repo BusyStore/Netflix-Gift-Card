@@ -1,164 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Gift Card - Busy Store</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-        body {
-            background-color: #141414;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .card-container {
-            background-color: #1f1f1f;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-        }
-        .store-logo-box {
-            margin-bottom: 15px;
-        }
-        .store-logo-box img {
-            max-width: 80px;
-            height: auto;
-            border-radius: 50%;
-        }
-        .product-logo-box {
-            margin-bottom: 20px;
-        }
-        .product-logo-box img {
-            max-width: 140px;
-            height: auto;
-        }
-        .store-title {
-            font-size: 14px;
-            color: #e50914;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .card-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #444;
-            background-color: #333;
-            color: #fff;
-            font-size: 16px;
-            text-align: center;
-            outline: none;
-        }
-        .input-group input:focus {
-            border-color: #e50914;
-        }
-        .btn-unlock {
-            width: 100%;
-            padding: 12px;
-            background-color: #e50914;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-unlock:hover {
-            background-color: #f40612;
-        }
-        .code-box {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #000000;
-            border: 2px dashed #e50914;
-            border-radius: 6px;
-            word-break: break-all;
-        }
-        .code-text {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 2px;
-        }
-        .error-msg {
-            color: #e50914;
-            font-size: 14px;
-            margin-top: 10px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busy Store - Gift Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #0b132b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+    }
+    .card-container {
+      background: #ffffff;
+      padding: 32px 24px;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    /* Busy Store Logo */
+    .store-logo {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 16px;
+      object-fit: contain;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      margin: 0 0 6px 0;
+    }
+    .amount {
+      font-size: 20px;
+      font-weight: 700;
+      color: #d99b00;
+      margin: 0 0 16px 0;
+    }
+    
+    /* Product Card Box */
+    .card-box {
+      background-color: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .logo-img {
+      width: 100%;
+      max-width: 130px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Input Section Styles */
+    .input-box {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 15px;
+      text-align: center;
+      margin-bottom: 12px;
+      outline: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #1a1a1a;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Details Box Section */
+    .details-box {
+      background-color: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 20px;
+      padding: 20px 16px;
+    }
+    .details-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8e8e93;
+      letter-spacing: 0.8px;
+      margin: 0 0 14px 0;
+    }
+    .code-field {
+      background-color: #fffde7;
+      border: 1.5px dashed #fbc02d;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #b78103;
+      word-break: break-all;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
 <div class="card-container">
-    <!-- Store Logo  -->
-    <div class="store-logo-box">
-        <img src="busystore.png" alt="Busy Store Logo">
+  <!-- Busy Store Logo -->
+  <img src="busystore.png" alt="Busy Store Logo" class="store-logo">
+
+  <!-- Password Locked View (Lock Screen) -->
+  <div id="lock-section">
+    <h1 class="title">NETFLIX GIFT CARD</h1>
+    <p class="amount">$10.00 USD</p>
+
+    <!-- Product Card (Lock Screen) -->
+    <div class="card-box">
+      <img src="Netflix.png" alt="Product" class="logo-img">
     </div>
 
-    <div class="store-title">Busy Store</div>
+    <input type="password" id="passInput" class="input-box" placeholder="Enter Password">
+    <button onclick="checkPassword()" class="btn">Unlock Card</button>
+    <p id="error-msg" style="color: #ef4444; font-size: 13px; display: none; margin-top: 10px;">Password မှားယွင်းနေပါသည်။</p>
+  </div>
 
-    <!--  Netflix Logo -->
-    <div class="product-logo-box">
-        <img src="Netflix.png" alt="Netflix Gift Card Logo">
+  <!-- Unlocked View -->
+  <div id="card-section" class="hidden">
+    <h1 class="title">Netflix GIFT CARD</h1>
+    <p class="amount">$10.00 USD</p>
+
+    <!-- Product Logo (Unlocked Screen) -->
+    <div class="card-box">
+      <img src="Netflix.png" alt="Netflix Logo" class="logo-img">
     </div>
 
-    <div class="card-title">Netflix Gift Card</div>
-    
-    <div id="password-section">
-        <div class="input-group">
-            <input type="password" id="passwordInput" placeholder="Enter Unlock Code">
-        </div>
-        <button class="btn-unlock" onclick="unlockCode()">Unlock Code</button>
-        <div id="errorMsg" class="error-msg">Password မှားယွင်းနေပါသည်</div>
+    <!-- Details Box -->
+    <div class="details-box">
+      <p class="details-title">GIFT CARD DETAILS</p>
+      <div class="code-field">
+        CODE: X57M-XZ6Z-NVW4-QTFT
+      </div>
     </div>
 
-    <div id="codeSection" class="code-box">
-        <p style="font-size: 12px; color: #aaa; margin-bottom: 5px;">YOUR GIFT CARD CODE:</p>
-        <div id="giftCode" class="code-text">XXXX-XXXX-XXXX</div>
-    </div>
+    <p class="footer-text">Thank you for shopping with Busy Store!</p>
+     </p>
+  </div>
 </div>
 
 <script>
-    function unlockCode() {
-        const pass = document.getElementById('passwordInput').value;
-        
-        const correctPass = "1234"; 
-        const netflixCode = "NFLX-9876-5432-1098"; 
+  function checkPassword() {
+    
+    const correctPassword = "1234";
 
-        if (pass === correctPass) {
-            document.getElementById('password-section').style.display = 'none';
-            document.getElementById('codeSection').style.display = 'block';
-            document.getElementById('giftCode').innerText = netflixCode;
-        } else {
-            document.getElementById('errorMsg').style.display = 'block';
-        }
+    const userPassword = document.getElementById("passInput").value;
+    if (userPassword === correctPassword) {
+      document.getElementById("lock-section").classList.add("hidden");
+      document.getElementById("card-section").classList.remove("hidden");
+    } else {
+      document.getElementById("error-msg").style.display = "block";
     }
+  }
 </script>
 
 </body>

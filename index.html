@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Gift Card - Busy Store</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #141414;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card-container {
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+        .store-logo-box {
+            margin-bottom: 15px;
+        }
+        .store-logo-box img {
+            max-width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .product-logo-box {
+            margin-bottom: 20px;
+        }
+        .product-logo-box img {
+            max-width: 140px;
+            height: auto;
+        }
+        .store-title {
+            font-size: 14px;
+            color: #e50914;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+        }
+        .input-group input:focus {
+            border-color: #e50914;
+        }
+        .btn-unlock {
+            width: 100%;
+            padding: 12px;
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-unlock:hover {
+            background-color: #f40612;
+        }
+        .code-box {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #000000;
+            border: 2px dashed #e50914;
+            border-radius: 6px;
+            word-break: break-all;
+        }
+        .code-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        .error-msg {
+            color: #e50914;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <!-- Store Logo  -->
+    <div class="store-logo-box">
+        <img src="busystore.png" alt="Busy Store Logo">
+    </div>
+
+    <div class="store-title">Busy Store</div>
+
+    <!--  Netflix Logo -->
+    <div class="product-logo-box">
+        <img src="netflix.png" alt="Netflix Gift Card Logo">
+    </div>
+
+    <div class="card-title">Netflix Gift Card</div>
+    
+    <div id="password-section">
+        <div class="input-group">
+            <input type="password" id="passwordInput" placeholder="Enter Unlock Code">
+        </div>
+        <button class="btn-unlock" onclick="unlockCode()">Unlock Code</button>
+        <div id="errorMsg" class="error-msg">Password မှားယွင်းနေပါသည်</div>
+    </div>
+
+    <div id="codeSection" class="code-box">
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 5px;">YOUR GIFT CARD CODE:</p>
+        <div id="giftCode" class="code-text">XXXX-XXXX-XXXX</div>
+    </div>
+</div>
+
+<script>
+    function unlockCode() {
+        const pass = document.getElementById('passwordInput').value;
+        
+        const correctPass = "1234"; 
+        const netflixCode = "NFLX-9876-5432-1098"; 
+
+        if (pass === correctPass) {
+            document.getElementById('password-section').style.display = 'none';
+            document.getElementById('codeSection').style.display = 'block';
+            document.getElementById('giftCode').innerText = netflixCode;
+        } else {
+            document.getElementById('errorMsg').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
